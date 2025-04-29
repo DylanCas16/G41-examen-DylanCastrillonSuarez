@@ -26,12 +26,10 @@ export class StudentsComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {
     this.studentForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      name: ['', [Validators.required, Validators.minLength(6)]],
-      id: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(6)]]
     })
   }
 
-  get id() {return this.studentForm.get('id');}
   get name() {return this.studentForm.get('name');}
   get email() { return this.studentForm.get('email'); }
 
@@ -40,10 +38,10 @@ export class StudentsComponent implements OnInit {
   }
 
   editModal(student: Students) {
-
+    return this.studentService.updateStudent(student);
   }
 
-  deleteStudent(student: Students) {
-
+  deleteModal(student: Students) {
+    return this.studentService.deleteStudent(student);
   }
 }

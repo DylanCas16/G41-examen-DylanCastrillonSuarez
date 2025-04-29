@@ -5,11 +5,6 @@
   <form [formGroup]="studentForm" (ngSubmit)="onFormSubmit()">
     <div>
       <div>
-        <label for="student_id">id:</label>
-        <input formControlName="id" id="student_id" placeholder="student_id"
-               [ngClass]="{ 'error': id?.errors?.['id']}">
-      </div>
-      <div>
         <label for="student_name">Name:</label>
         <input formControlName="name" id="student_name" placeholder="name"
                [ngClass]="{ 'error': name?.errors?.['name']}">
@@ -20,11 +15,11 @@
                [ngClass]="{ 'error': email?.errors?.['email']}">
       </div>
     </div>
+
     <button type="submit">Accept</button>
-    <button>Clean</button>
   </form>
 
-  <table class="table table-striped">
+  <table>
     <thead>
     <tr>
       <th scope="col">id</th>
@@ -39,10 +34,10 @@
         <th scope="row">{{student.id}}</th>
         <td>{{student.name}}</td>
         <td>{{student.email}}</td>
-        <td><i class="bi bi-pencil-square" style="color: green;"
-               (click)="editModal(student)"></i></td>
-        <td><i class="bi bi-trash" style="color: red;"
-               (click)="deleteStudent(student)" ></i></td>
+        <td><button style="color: green;"
+               (click)="editModal(student)">Edit</button></td>
+        <td><button style="color: red;"
+               (click)="deleteModal(student)" >Delete</button></td>
       </tr>
     </tbody>
   </table>

@@ -1,0 +1,43 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: deeppink;
+}
+
+form {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 20em;
+  height: 5em;
+  border: hotpink 4px solid;
+  background-color: lightpink;
+  border-radius: 10px;
+}
+
+table {
+  padding: 1em;
+  margin-top: 2em;
+  border: hotpink 4px solid;
+  background-color: lightpink;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table thead {
+  border: hotpink 4px solid;
+  justify-self: center;
+}
