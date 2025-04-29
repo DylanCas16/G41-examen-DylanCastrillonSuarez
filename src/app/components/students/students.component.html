@@ -1,0 +1,49 @@
+<section>
+  <div>
+    <h1>Estudiantes</h1>
+  </div>
+  <form [formGroup]="studentForm" (ngSubmit)="onFormSubmit()">
+    <div>
+      <div>
+        <label for="student_id">id:</label>
+        <input formControlName="id" id="student_id" placeholder="student_id"
+               [ngClass]="{ 'error': id?.errors?.['id']}">
+      </div>
+      <div>
+        <label for="student_name">Name:</label>
+        <input formControlName="name" id="student_name" placeholder="name"
+               [ngClass]="{ 'error': name?.errors?.['name']}">
+      </div>
+      <div>
+        <label for="student_email">Email:</label>
+        <input formControlName="email" type="email" id="student_email" placeholder="name@example.com"
+               [ngClass]="{ 'error': email?.errors?.['email']}">
+      </div>
+    </div>
+    <button type="submit">Accept</button>
+    <button>Clean</button>
+  </form>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of studentsData(); index as i">
+        <th scope="row">{{student.id}}</th>
+        <td>{{student.name}}</td>
+        <td>{{student.email}}</td>
+        <td><i class="bi bi-pencil-square" style="color: green;"
+               (click)="editModal(student)"></i></td>
+        <td><i class="bi bi-trash" style="color: red;"
+               (click)="deleteStudent(student)" ></i></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
